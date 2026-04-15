@@ -1,0 +1,229 @@
+【中文参考音及文本】
+seedtts_ref_zh_2.wav	事情怎么这么多啊！明天又要开会了，做不完啊！说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办？
+seedtts_ref_zh_3.wav	皇上请三思，皇后娘娘都是为了万岁爷着想，万岁爷不要辜负了娘娘的一片苦心。
+seedtts_ref_zh_1.wav	对，这就是我，万人敬仰的太乙真人，虽然有点婴儿肥，但也掩不住我逼人的帅气。
+common_voice_zh-CN_41697648.mp3	之前看到一个视频说某国际大学的一个研究人工智能的博士发表了一篇题为大语言模型会自发产生智能的论文这是对这所国际百年名校的最大耻辱
+common_voice_zh-CN_41581691.mp3	语音识别是实现人机交互的一种重要途径是自然语言处理的技术环节随着人工智能技术的发展人机交互等大量应用场景存在着流逝语音识别的需求
+
+这两句同一说话人：
+zh_fleurs_cmn_hans_cn_10878784572167100857.wav	新王国时期的古埃及人惊叹于其前辈的已有一千多年历史的纪念碑。
+zh_fleurs_cmn_hans_cn_13436954706048324262.wav	热巧克力达到了比利时的标准。果汁价格昂贵，但品质很好。
+
+这两句同一说话人：
+zh_fleurs_cmn_hans_cn_15647719969739775381.wav	然而，由于文化交流迟缓，西方的时尚可能落后 25 到 30 年。
+zh_fleurs_cmn_hans_cn_4387025999390132883.wav	所有的这些都成为了独立的学科，着重为现实生活中的问题提供解决方案。
+
+【中文合成文本】
+顿时，气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”
+OmniVoice：seedtts_ref_zh_2_gen_zh.wav
+
+皇上的面色未变，宛如雕塑般静止，他的眼中闪过一丝动人的温度。他深深地看了那位忠心耿耿的臣子一眼，终于开口：“诺，我会再考虑考虑的。”他的声音低沉且坚定，留下空气中隐隐的无奈与柔情。
+OmniVoice：seedtts_ref_zh_3_gen_zh.wav
+
+"突然，身边一阵笑声。我看着他们，意气风发地挺直了胸膛，甩了甩那稍显肉感的双臂，轻笑道：“我身上的肉，是为了掩饰我爆棚的魅力，否则，岂不吓坏了你们呢？”"
+OmniVoice：seedtts_ref_zh_1_gen_zh.wav
+
+我也是，不过下班后去健身房锻炼了一下，感觉好多了。
+OmniVoice：chinese_00049.wav
+
+我们小区最近在进行环境改造，希望完工后能有更多的绿化空间。
+OmniVoice：chinese_00065.wav
+
+尽管如此，还是要听从有关部门的建议，遵守所有的标志并密切注意安全警告。
+OmniVoice：zh_fleurs_cmn_hans_cn_10878784572167100857_17791339699136008364.wav
+
+阿根廷以拥有世界顶尖的马球队和球员而闻名。
+OmniVoice：zh_fleurs_cmn_hans_cn_13436954706048324262_2723122016499385250.wav
+
+当所有可用的资源在一个组织的职能部门之间得到有效利用时，创造力和独创性就会发生。
+OmniVoice：zh_fleurs_cmn_hans_cn_15647719969739775381_16000960916854882054.wav
+
+这一发现也有助于深入了解鸟类羽毛的进化。
+OmniVoice：zh_fleurs_cmn_hans_cn_4387025999390132883_5993706091846256917.wav
+
+
+【英语参考音及文本】
+seedtts_ref_en_1.wav	Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.
+seedtts_ref_en_2.wav	Are you familiar with it? Slice the steak and place the strips on top, then garnish with the dried cranberries, pine nuts and blue cheese. I wonder how people rationalized the decision.
+seedtts_ref_en_3.wav	You don't know how much trouble you've gotten yourself into? Look, if one of the others get to you first, they'll report you. Alpha Grant has a search out. And if they see you on human territory, they'll be shunned.
+common_voice_en_42357710.mp3	Nayar and Nisam describe an application in maintaining authorization certificates in public key cryptosystems.
+common_voice_en_42238763.mp3	ecclesiastical heraldry of the catholic church appeared first in seals nearly all vesica shaped
+en_fleurs_en_us_13732033283623109766.wav	By 1976, thirty percent of Machu Picchu had been restored and restoration continues till today.
+en_fleurs_en_us_13870674013435125016.wav	A course will normally cover all the issues discussed here in far greater detail, usually with practical experience.
+en_fleurs_en_us_3529855487992513201.wav	This seems sensible, because the Earth doesn't feel as if it's moving, does it?
+en_fleurs_en_us_8395660467583137383.wav	Regional and seasonal severe weather phenomena include blizzards, snowstorms, ice storms, and dust storms.
+
+
+【英语合成文本】
+I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring. Respect me and I'll nurture you; ignore me and you shall face the consequences.
+OmniVoice：seedtts_ref_en_1_gen_en.wav
+
+Perhaps they are driven by the delicious blend of flavors, or it could be the appealing visual presentation. At the end of the day, our choices in food reflect our personal preferences and sometimes, even our lifestyle or belief system.
+OmniVoice：seedtts_ref_en_2_gen_en.wav
+
+Your safety and the pack's reputation are at stake. Your bravery is admirable, but sometimes bravery is knowing when to retreat. Please, consider returning with me. We can work out a plan, but only if you're willing to listen.
+OmniVoice：seedtts_ref_en_3_gen_en.wav
+
+Today, at the edge of our hope, at the end of our time, we have chosen not only to believe in ourselves, but in each other.
+OmniVoice：english_00017.wav
+
+Walking through the ancient olive groves of Tuscany, I was struck by how the silvery leaves shimmered in the afternoon sunlight.
+OmniVoice：english_00076.wav
+
+Since students are often the most critical audience, the blog writer begins to strive to improve writing to avoid criticism.
+OmniVoice：en_fleurs_en_us_13732033283623109766_9957590450625488532.wav
+
+In many other cities of Italy and in the rest of the world, particularly in Poland, similar setups were made, which were viewed by a great number of people.
+OmniVoice：en_fleurs_en_us_13870674013435125016_4168260504174612795.wav
+
+According to police, the driver of the vehicle that hit the photographer is unlikely to face criminal charges.
+OmniVoice：en_fleurs_en_us_3529855487992513201_17646385371758249908.wav
+
+In 1990, it was added to the list of world heritage sites in danger, due to the threat of desert sands.
+OmniVoice：en_fleurs_en_us_8395660467583137383_13245569655363672734.wav
+
+
+【日语参考音及文本】
+common_voice_ja_40928196.mp3	この法律に定めるもののほか、本部に関し必要な事項は政令で定める。
+common_voice_ja_40899872.mp3	議員内閣制と大統領制の違いは、立法府と行政府の関係にある。議員内閣制では、国民から選挙で選ばれた議員が議会を構成し、議会の多数派から首相が指名され、首相が内閣を組織する。
+ja_fleurs_ja_jp_10683203810610128933.wav	羽を持ち、空を飛べるので、恐竜だと思っていない人も大勢います。
+ja_fleurs_ja_jp_12387010142585874308.wav	水は幅100フィートの範囲にわたって堤防の上にこぼれ落ちています。
+ja_fleurs_ja_jp_12788004986374355070.wav	その後2時間のうちに、さらに3つの爆弾が官庁施設の付近で爆発しました。
+ja_fleurs_ja_jp_6257135335237582548.wav	そういったものは、実生活の問題解決に焦点を当てた別の分野になっています。
+
+【日语合成文本】
+でも、やっぱりこういうコンテンツ制作は続けることが一番大切ですよね。
+OmniVoice：japanese_00026.wav
+
+日本のアニメ映画は、子供から大人まで楽しめる普遍的なテーマと美しいアニメーションで世界中に感動を届けています。
+OmniVoice：japanese_00082.wav
+
+宇宙にある人工衛星は通話を受信して、ほぼ瞬時にそれを反映します。
+OmniVoice：ja_fleurs_ja_jp_10683203810610128933_18146068393309246703.wav
+
+実地に体験したければ、早めに到着して演奏が聞こえやすいキャンプ場を確保しなければなりません。
+OmniVoice：ja_fleurs_ja_jp_12387010142585874308_10969509778910365671.wav
+
+その後、ラッカ・シンが先頭に立ってバジャンを歌いました。
+OmniVoice：ja_fleurs_ja_jp_12788004986374355070_11946518714540162763.wav
+
+イタリア語の発音は比較的簡単で、ほとんどの単語は文字通りに発音されます。
+OmniVoice：ja_fleurs_ja_jp_6257135335237582548_14857775735233890472.wav
+
+
+【韩语参考音及文本】
+common_voice_ko_41341820.mp3	그러나 나 같은 명상을 즐기는 사람에게는 다른 데서 구하기 힘들도록 온갖 것을 가진 집이었습니다.
+common_voice_ko_41667661.mp3	밖으로 나간 덕호는 이제야 큰 대문 소리를 찌뻑 내며 쿵쿵하고 중대문을 들어선다
+ko_fleurs_ko_kr_10107571163062229727.wav	염소 사육은 대략 일만 년 전에 이란의 자그로스산맥에서 시작한 것으로 보입니다.
+ko_fleurs_ko_kr_3568751784040437751.wav	따라서, 연필이 등장하고 연필은 많은 사람들에게 좋은 도구로 남았습니다.
+ko_fleurs_ko_kr_4146578248356287830.wav	소방 구조 대원들이 결국 오후 11시 35분까지 불을 껐다.
+ko_fleurs_ko_kr_4503557554367419146.wav	여행자들은 여행 계획에 차질이 생기지 않도록 현지 날씨에 대해 미리 찾아보고 가야 한다.
+
+
+【韩语合成文本】
+첫째 날은 서귀포에 있는 여수정천으로 갔습니다. 투명한 물과 아름다운 폭포는 마치 천국과 같은 경치를 선사했습니다.
+OmniVoice：korean_00037.wav
+
+해질녘 바다를 바라보던 노인은 60년 전 같은 해변에서 만났던 첫사랑을 떠올렸다.
+OmniVoice：korean_00099.wav
+
+이건 작별 인사가 아닙니다. 이것은 한 장의 끝이며 새로운 장의 시작입니다.
+OmniVoice：ko_fleurs_ko_kr_10107571163062229727_2510882382123888779.wav
+
+그래도 관계자의 조언을 듣고 모든 표지판을 지키고, 안전 경고에 세심한 주의를 기울여야 합니다.
+OmniVoice：ko_fleurs_ko_kr_3568751784040437751_4430339481818254225.wav
+
+화요일에 베어 쓰러뜨릴 예정이었으나 긴급 법원의 판결로 구조되었다.
+OmniVoice：ko_fleurs_ko_kr_4146578248356287830_11667888958665146980.wav
+
+시골길 운전에 익숙하지 않은 경우 가파른 경사, 좁은 차선 및 급격한 커브길을 조심해야 합니다.
+OmniVoice：ko_fleurs_ko_kr_4503557554367419146_4714574278772298617.wav
+
+
+【越南语参考音及文本】
+common_voice_vi_21965267.mp3	Hà sợ quá, giật lùi lại phía sau, xuyết ngã ngựa ra đất
+common_voice_vi_23925117.mp3	Trinh có hỏi thì được biết sông Trai vẫn đang làm ở chỗ cũ.
+vi_fleurs_vi_vn_5080253653527714871.wav	Họ thường cung cấp những thức ăn, đồ uống và giải trí đặc biệt để giữ khách hàng thoải mái, và giữ họ ở lại.
+vi_fleurs_vi_vn_5541340816453446848.wav	Hiển nhiên, nếu bạn biết một ngôn ngữ La Mã, bạn sẽ dễ dàng học Tiếng Bồ Đào Nha.
+vi_fleurs_vi_vn_676550904379811296.wav	Trong khoảng 150 đến 200 bản in đã được tạo ra xuyên đêm, ngày nay được biết tới là “Bản in Dunlap”.
+vi_fleurs_vi_vn_9410324112140689433.wav	Quyền lực toàn diện của nó đã tác động đến mọi người, từ vua chúa đến thường dân.
+
+【越南语合成文本】
+Sách nói là phương tiện tuyệt vời để khám phá những câu chuyện hay trong cuộc sống.
+OmniVoice：vietnamese_00044.wav
+
+Vận động viên Paralympic đã giành huy chương vàng trong cuộc thi bơi lội, thiết lập kỷ lục thế giới mới trong hạng mục của mình.
+OmniVoice：vietnamese_00083.wav
+
+Lực ma sát trên lòng đường đóng băng và phủ tuyết thấp khiến bạn không thể lái xe như đang lái trên đường nhựa bình thường.
+OmniVoice：vi_fleurs_vi_vn_5080253653527714871_8097358398001169269.wav
+
+Du ngoạn bằng đường thủy trên đất liền có thể là một ý tưởng khá hay.
+OmniVoice：vi_fleurs_vi_vn_5541340816453446848_12803633552627186852.wav
+
+Với đặc điểm tương đối khó tiếp cận, 'Timbuktu' đã được sử dụng như một ẩn dụ chỉ về những vùng đất xa xôi kỳ lạ.
+OmniVoice：vi_fleurs_vi_vn_676550904379811296_10965755017487041216.wav
+
+Nó cũng không có thẩm quyền trong việc sửa đồi luật thuế quan hay biểu thuế giữa các tiểu bang.
+OmniVoice：vi_fleurs_vi_vn_9410324112140689433_1315143562366891843.wav
+
+
+
+
+【泰语参考音及文本】
+common_voice_th_41460262.mp3	ภาพแรก คือตัวอย่างป้ายที่หวยแตก ภาพ 2,3 คือป้ายที่ชัดเจน
+common_voice_th_41452716.mp3	อันนี้ก็ความเชื่อส่วนตัวฮะ ถ้าไม่ร้านร้านผม ผมก็ไม่ว่าอะไร แยกเตาโพธยานคํา
+th_fleurs_th_th_12454841202875400668.wav	เขาไม่ได้กำหนดตัวเลขสำหรับการตัดงบประมาณ โดยกล่าวว่าการกำหนดจะขึ้นอยู่กับผลผลิตทางเศรษฐกิจของจีน
+th_fleurs_th_th_14941264863881883714.wav	ระเบิดแบบฟิชชันทำงานบนหลักการที่ว่าการรวมนิวเคลียสที่มีโปรตอนและนิวตรอนจำนวนมากต้องใช้พลังงาน
+th_fleurs_th_th_405708368329299747.wav	นักกีฏวิทยาเรียกแมลงกลุ่มนี้ในลักษณะที่เป็นทางการว่าแมลงปีกแข็ง
+th_fleurs_th_th_8781754929449205930.wav	มีรายงานว่ามีการปล้นอย่างกว้างขวางต่อเนื่องข้ามคืน เนื่องจากไม่มีเจ้าหน้าที่บังคับใช้กฎหมายที่ถนนของบิชเคก
+
+【泰语合成文本】
+เทศบาลเมืองประกาศการนำระบบขนส่งสาธารณะใหม่มาใช้ ซึ่งสัญญาว่าจะลดเวลารอและปรับปรุงคุณภาพการบริการ
+OmniVoice：thai_00032.wav
+
+ศิลปะการต่อสู้แบบดั้งเดิมของไทยได้รับการขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมที่จับต้องไม่ได้โดยองค์การยูเนสโก
+OmniVoice：thai_00087.wav
+
+ประชากรดั้งเดิมไม่ได้เปลี่ยนแปลงแม้แต่น้อย พวกเขายังคงจำเป็นต้องปรับตัวแบบเดียวกับเมื่อก่อน
+OmniVoice：th_fleurs_th_th_12454841202875400668_7412484023755101557.wav
+
+มีการใช้บริการนี้ในการขนส่งอยู่บ่อย ๆ ซึ่งรวมถึงเรือสำราญและการสำรวจที่ต้องการทั้งข้อมูลและเสียงจากระยะไกล
+OmniVoice：th_fleurs_th_th_14941264863881883714_11182578007668220495.wav
+
+เขาไม่สามารถใช้ยาที่จำเป็นต้องใช้เพื่อเอาชนะความเจ็บปวดเพราะมีการห้ามไม่ให้ใช้ยาเหล่านี้ในเกมการแข่งขัน
+OmniVoice：th_fleurs_th_th_405708368329299747_3007940828946657666.wav
+
+ในเมืองอื่น ๆ หลายเมืองของอิตาลีและในส่วนอื่น ๆ ของโลก โดยเฉพาะในโปแลนด์ มีการจัดงานที่คล้ายกันซึ่งมีผู้เข้าชมจำนวนมาก
+OmniVoice：th_fleurs_th_th_8781754929449205930_8533878643103325422.wav
+
+
+【交叉语音零样本合成】
+参考音：
+seedtts_ref_zh_1.wav	对，这就是我，万人敬仰的太乙真人，虽然有点婴儿肥，但也掩不住我逼人的帅气。
+seedtts_ref_zh_2.wav	事情怎么这么多啊！明天又要开会了，做不完啊！说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办？
+seedtts_ref_zh_3.wav	皇上请三思，皇后娘娘都是为了万岁爷着想，万岁爷不要辜负了娘娘的一片苦心。
+seedtts_ref_en_1.wav	Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.
+seedtts_ref_en_2.wav	Are you familiar with it? Slice the steak and place the strips on top, then garnish with the dried cranberries, pine nuts and blue cheese. I wonder how people rationalized the decision.
+seedtts_ref_en_3.wav	You don't know how much trouble you've gotten yourself into? Look, if one of the others get to you first, they'll report you. Alpha Grant has a search out. And if they see you on human territory, they'll be shunned.
+
+合成文本：
+Suddenly, there was a burst of laughter beside me. I looked at them, stood up straight with high spirit, shook the slightly fleshy arms, and smiled lightly, saying, "The flesh on my body is to hide my bursting charm. Otherwise, wouldn't it scare you?"
+OmniVoice：seedtts_ref_zh_1_gen_en.wav
+
+Suddenly, the atmosphere became gloomy. At first glance, all the troubles seemed to surround me. I frowned, feeling that pressure, but I know I can't give up, can't admit defeat. So, I took a deep breath, and the voice in my heart told me, "Anyway, must calm down and start again."
+OmniVoice：seedtts_ref_zh_2_gen_en.wav
+
+The emperor's complexion did not change, remaining as still as a sculpture, and a touch of touching warmth flashed in his eyes. He deeply glanced at the loyal minister, and finally spoke: "Well, I will consider it again." His voice was low and firm, leaving a faint hint of helplessness and tenderness in the air.
+OmniVoice：seedtts_ref_zh_3_gen_en.wav
+
+顿时，气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”
+OmniVoice：seedtts_ref_en_1_gen_zh.wav
+
+我抬起头，坚定地说：“身高不能决定一切，这世界在看我，我更看得到世界。无论是北上广，或是别的什么，我都将以我自己的方式去攀爬，去追逐。我可能小，但我绝不会被忽视。”
+OmniVoice：seedtts_ref_en_2_gen_zh.wav
+
+你的安全以及族群的声誉都危在旦夕。你的勇敢令人钦佩，但有时候勇敢在于懂得何时撤退。拜托，考虑一下和我一起回去吧。我们可以制定一个计划，但前提是你愿意倾听。
+OmniVoice：seedtts_ref_en_3_gen_zh.wav
+
+

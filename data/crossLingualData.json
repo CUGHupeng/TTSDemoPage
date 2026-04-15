@@ -1,0 +1,44 @@
+[
+  {
+    "title": "中 → 英",
+    "prompt": { "text": "对，这就是我，万人敬仰的太乙真人，虽然有点婴儿肥，但也掩不住我逼人的帅气。", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_1.wav" },
+    "text": "Suddenly, there was a burst of laughter beside me. I looked at them, stood up straight with high spirit, shook the slightly fleshy arms, and smiled lightly, saying,\"The flesh on my body is to hide my bursting charm. Otherwise, wouldn't it scare you?\"",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_1_gen_en.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_1_gen_en.wav" }
+  },
+  {
+    "title": "中 → 英",
+    "prompt": { "text": "事情怎么这么多啊！明天又要开会了，做不完啊！说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办？", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_2.wav" },
+    "text": "Suddenly, the atmosphere became gloomy. At first glance, all the troubles seemed to surround me. I frowned, feeling that pressure, but I know I can't give up, can't admit defeat. So, I took a deep breath, and the voice in my heart told me, \"Anyway, must calm down and start again.\"",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_2_gen_en.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_2_gen_en.wav" }
+  },
+  {
+    "title": "中 → 英",
+    "prompt": { "text": "皇上请三思，皇后娘娘都是为了万岁爷着想，万岁爷不要辜负了娘娘的一片苦心。", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_3.wav" },
+    "text": "The emperor's complexion did not change, remaining as still as a sculpture, and a touch of touching warmth flashed in his eyes. He deeply glanced at the loyal minister, and finally spoke: \"Well, I will consider it again.\" His voice was low and firm, leaving a faint hint of helplessness and tenderness in the air.",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_3_gen_en.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_3_gen_en.wav" }
+  },
+  {
+    "title": "英 → 中",
+    "prompt": { "text": "Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_1.wav" },
+    "text": "顿时，气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_1_gen_zh.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_1_gen_zh.wav" }
+  },
+  {
+    "title": "英 → 中",
+    "prompt": { "text": "Are you familiar with it? Slice the steak and place the strips on top, then garnish with the dried cranberries, pine nuts and blue cheese. I wonder how people rationalized the decision.", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_2.wav" },
+    "text": "我抬起头，坚定地说：“身高不能决定一切，这世界在看我，我更看得到世界。无论是北上广，或是别的什么，我都将以我自己的方式去攀爬，去追逐。我可能小，但我绝不会被忽视。”",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_2_gen_zh.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_2_gen_zh.wav" }
+  },
+  {
+    "title": "英 → 中",
+    "prompt": { "text": "You don't know how much trouble you've gotten yourself into? Look, if one of the others get to you first, they'll report you. Alpha Grant has a search out. And if they see you on human territory, they'll be shunned.", "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_3.wav" },
+    "text": "你的安全以及族群的声誉都危在旦夕。你的勇敢令人钦佩，但有时候勇敢在于懂得何时撤退。拜托，考虑一下和我一起回去吧。我们可以制定一个计划，但前提是你愿意倾听。",
+    "OmniVoice": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_3_gen_zh.wav" },
+      "VdusTTS": { "file": "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_3_gen_zh.wav" }
+  }
+]
