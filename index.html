@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero-shot TTS Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fafafa;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3.0em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+    .badges {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .badges img {
+      margin: 0 5px;
+    }
+    .abstract {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+    .abstract h2 {
+      margin-top: 0;
+      color: #1a1a1a;
+    }
+    .contents {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+    .contents h2 {
+      margin-top: 0;
+    }
+    .contents ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .contents li {
+      margin: 8px 0;
+    }
+    .contents a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .contents a:hover {
+      text-decoration: underline;
+    }
+    section {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+    section h2 {
+      margin-top: 0;
+      color: #1a1a1a;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+    .tip {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      border-radius: 0 8px 8px 0;
+      color: #1e40af;
+    }
+    .language-selector {
+      margin-bottom: 25px;
+    }
+    .language-selector label {
+      font-weight: 500;
+      margin-right: 10px;
+    }
+    .language-selector select {
+      padding: 10px 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 18px;
+      background: white;
+      cursor: pointer;
+      min-width: 200px;
+    }
+    .language-selector select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th {
+      background: #f3f4f6;
+      padding: 12px 15px;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    td {
+      padding: 15px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: middle;
+    }
+    tr:hover {
+      background: #f9fafb;
+    }
+    .text-content {
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 1600px;
+    }
+    audio {
+      width: 200px;
+      height: 45px;
+      display: block;
+      margin: 0 auto;
+    }
+    .prompt-text {
+      font-size: 16px;
+      color: #666;
+      margin-top: 8px;
+      font-style: italic;
+      text-align: center;
+    }
+    .sample-name {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      text-align: center;
+      color: #999;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <h1>Zero-shot TTS Demo</h1>
+  <p class="subtitle">Vdus AI Team</p>
+
+  <!-- Abstract -->
+  <div class="abstract">
+    <h2>摘要</h2>
+    <p>
+      本页面展示了自研零样本语音合成模型的效果演示。我们提供了两种场景的演示：<strong>多语种零样本语音合成</strong>和<strong>跨语种零样本语音合成</strong>。
+      用户可以通过选择不同的语种，体验模型在不同语言环境下的语音合成能力。
+    </p>
+  </div>
+
+  <!-- Contents -->
+  <div class="contents">
+    <h2>目录</h2>
+    <ul>
+      <li><a href="#multilingual-zero-shot">1. 多语种零样本语音合成</a></li>
+      <li><a href="#cross-lingual-zero-shot">2. 跨语种零样本语音合成</a></li>
+      <li><a href="#zero-shot-TTS-with-emotional-prompt">3. 带情感提示音的零样本语音合成</a></li>
+    </ul>
+  </div>
+
+  <!-- Section 1: 多语种零样本语音合成 -->
+  <section id="multilingual-zero-shot">
+    <h2>1. 多语种零样本语音合成</h2>
+    <p>在此部分，我们展示了模型在多种语言下的零样本语音合成能力。选择不同语种可以听取对应的合成效果。</p>
+    
+    <div class="tip">
+      💡 提示：使用下方菜单选择不同语种，体验多语种语音合成效果。
+    </div>
+
+    <div class="language-selector">
+      <label for="lang-select">✨ 选择语种：</label>
+      <select id="lang-select" onchange="switchLanguage(this.value)">
+        <option value="chinese">Chinese (中文)</option>
+        <option value="english">English (英语)</option>
+        <option value="japanese">Japanese (日语)</option>
+        <option value="korean">Korean (韩语)</option>
+        <option value="thai">Thai (泰语)</option>
+        <option value="vietnamese">Vietnamese (越南语)</option>
+      </select>
+    </div>
+
+    <div id="multilingual-container"></div>
+  </section>
+
+  <!-- Section 2: 跨语种零样本语音合成 -->
+  <section id="cross-lingual-zero-shot">
+    <h2>2. 跨语种零样本语音合成</h2>
+    <p>在此部分，我们展示了模型的跨语种语音合成能力。模型能够使用一种语言的提示音色，合成另一种语言的语音内容。</p>
+    
+    <div class="tip">
+      💡 提示：跨语种合成测试了模型在不同语言之间的音色迁移能力。
+    </div>
+
+    <div id="cross-lingual-container"></div>
+  </section>
+
+  <!-- Section 3: 带情感提示音的零样本语音合成 -->
+  <section id="zero-shot-TTS-with-emotional-prompt">
+    <h2>3. 带情感提示音的零样本语音合成</h2>
+    <p>在此部分，我们展示了模型在带情感提示音条件下的零样本语音合成能力。。</p>
+    
+    <div class="tip">
+      💡 提示：所给示例是不同情感提示音，以及同一情感不同强度条件下对同一文本的合成效果。
+    </div>
+
+    <div id="emotional-container"></div>
+  </section>
+
+  <footer>
+    © 2026 Vdus AI Team. All rights reserved.
+  </footer>
+
+<script>
+// ====== 示例数据 ======
+const multilingualData = {
+  chinese: [
+    {
+      prompt: { text: "对，这就是我，万人敬仰的太乙真人，虽然有点婴儿肥，但也掩不住我逼人的帅气。", file: "audio/zh/seedtts_ref_zh_1.wav" },
+      text: "突然，身边一阵笑声。我看着他们，意气风发地挺直了胸膛，甩了甩那稍显肉感的双臂，轻笑道：“我身上的肉，是为了掩饰我爆棚的魅力，否则，岂不吓坏了你们呢？”",
+      OmniVoice: { file: "audio/zh/seedtts_ref_zh_1_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/seedtts_ref_zh_1_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "皇上请三思，皇后娘娘都是为了万岁爷着想，万岁爷不要辜负了娘娘的一片苦心。", file: "audio/zh/seedtts_ref_zh_3.wav" },
+      text: "皇上的面色未变，宛如雕塑般静止，他的眼中闪过一丝动人的温度。他深深地看了那位忠心耿耿的臣子一眼，终于开口：“诺，我会再考虑考虑的。”他的声音低沉且坚定，留下空气中隐隐的无奈与柔情。",
+      OmniVoice: { file: "audio/zh/seedtts_ref_zh_3_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/seedtts_ref_zh_3_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "事情怎么这么多啊！明天又要开会了，做不完啊！说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办？", file: "audio/zh/seedtts_ref_zh_2.wav" },
+      text: "顿时，气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”",
+      OmniVoice: { file: "audio/zh/seedtts_ref_zh_2_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/seedtts_ref_zh_2_vdusTTS_gen_zh.wav" }
+    },
+    {
+     prompt: { text: "之前看到一个视频说某国际大学的一个研究人工智能的博士发表了一篇题为大语言模型会自发产生智能的论文这是对这所国际百年名校的最大耻辱", file: "audio/zh/common_voice_zh-CN_41697648.mp3" },
+     text: "我也是，不过下班后去健身房锻炼了一下，感觉好多了。",
+     OmniVoice: { file: "audio/zh/chinese_00049.wav" },
+     VdusTTS: { file: "audio/vdusTTS/zh/common_voice_zh-CN_41697648_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "语音识别是实现人机交互的一种重要途径是自然语言处理的技术环节随着人工智能技术的发展人机交互等大量应用场景存在着流逝语音识别的需求", file: "audio/zh/common_voice_zh-CN_41581691.mp3" },
+      text: "我们小区最近在进行环境改造，希望完工后能有更多的绿化空间。",
+      OmniVoice: { file: "audio/zh/chinese_00065.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/common_voice_zh-CN_41581691_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "新王国时期的古埃及人惊叹于其前辈的已有一千多年历史的纪念碑。", file: "audio/zh/zh_fleurs_cmn_hans_cn_10878784572167100857.wav" },
+      text: "尽管如此，还是要听从有关部门的建议，遵守所有的标志并密切注意安全警告。",
+      OmniVoice: { file: "audio/zh/zh_fleurs_cmn_hans_cn_10878784572167100857_17791339699136008364.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/zh_fleurs_cmn_hans_cn_10878784572167100857_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "热巧克力达到了比利时的标准。果汁价格昂贵，但品质很好。", file: "audio/zh/zh_fleurs_cmn_hans_cn_13436954706048324262.wav" },
+      text: "阿根廷以拥有世界顶尖的马球队和球员而闻名。",
+      OmniVoice: { file: "audio/zh/zh_fleurs_cmn_hans_cn_13436954706048324262_2723122016499385250.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/zh_fleurs_cmn_hans_cn_13436954706048324262_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "然而，由于文化交流迟缓，西方的时尚可能落后 25 到 30 年。", file: "audio/zh/zh_fleurs_cmn_hans_cn_15647719969739775381.wav" },
+      text: "当所有可用的资源在一个组织的职能部门之间得到有效利用时，创造力和独创性就会发生。",
+      OmniVoice: { file: "audio/zh/zh_fleurs_cmn_hans_cn_15647719969739775381_16000960916854882054.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/zh_fleurs_cmn_hans_cn_15647719969739775381_vdusTTS_gen_zh.wav" }
+    },
+    {
+      prompt: { text: "所有的这些都成为了独立的学科，着重为现实生活中的问题提供解决方案。", file: "audio/zh/zh_fleurs_cmn_hans_cn_4387025999390132883.wav" },
+      text: "这一发现也有助于深入了解鸟类羽毛的进化。",
+      OmniVoice: { file: "audio/zh/zh_fleurs_cmn_hans_cn_4387025999390132883_5993706091846256917.wav" },
+      VdusTTS: { file: "audio/vdusTTS/zh/zh_fleurs_cmn_hans_cn_4387025999390132883_vdusTTS_gen_zh.wav" }
+    }
+  ],
+  english: [
+    {
+      prompt: { text: "Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.", file: "audio/en/seedtts_ref_en_1.wav" },
+      text: "I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring. Respect me and I'll nurture you; ignore me and you shall face the consequences.",
+      OmniVoice: { file: "audio/en/seedtts_ref_en_1_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/seedtts_ref_en_1_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "Are you familiar with it? Slice the steak and place the strips on top, then garnish with the dried cranberries, pine nuts and blue cheese. I wonder how people rationalized the decision.", file: "audio/en/seedtts_ref_en_2.wav" },
+      text: "Perhaps they are driven by the delicious blend of flavors, or it could be the appealing visual presentation. At the end of the day, our choices in food reflect our personal preferences and sometimes, even our lifestyle or belief system.",
+      OmniVoice: { file: "audio/en/seedtts_ref_en_2_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/seedtts_ref_en_2_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "You don't know how much trouble you've gotten yourself into? Look, if one of the others get to you first, they'll report you. Alpha Grant has a search out. And if they see you on human territory, they'll be shunned.", file: "audio/en/seedtts_ref_en_3.wav" },
+      text: "Your safety and the pack's reputation are at stake. Your bravery is admirable, but sometimes bravery is knowing when to retreat. Please, consider returning with me. We can work out a plan, but only if you're willing to listen.",
+      OmniVoice: { file: "audio/en/seedtts_ref_en_3_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/seedtts_ref_en_3_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "Nayar and Nisam describe an application in maintaining authorization certificates in public key cryptosystems.", file: "audio/en/common_voice_en_42357710.mp3" },
+      text: "Today, at the edge of our hope, at the end of our time, we have chosen not only to believe in ourselves, but in each other.",
+      OmniVoice: { file: "audio/en/english_00017.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/common_voice_en_42357710_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "ecclesiastical heraldry of the catholic church appeared first in seals nearly all vesica shaped", file: "audio/en/common_voice_en_42238763.mp3" },
+      text: "Walking through the ancient olive groves of Tuscany, I was struck by how the silvery leaves shimmered in the afternoon sunlight.",
+      OmniVoice: { file: "audio/en/english_00076.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/common_voice_en_42238763_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "By 1976, thirty percent of Machu Picchu had been restored and restoration continues till today.", file: "audio/en/en_fleurs_en_us_13732033283623109766.wav" },
+      text: "Since students are often the most critical audience, the blog writer begins to strive to improve writing to avoid criticism.",
+      OmniVoice: { file: "audio/en/en_fleurs_en_us_13732033283623109766_9957590450625488532.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/en_fleurs_en_us_13732033283623109766_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "A course will normally cover all the issues discussed here in far greater detail, usually with practical experience.", file: "audio/en/en_fleurs_en_us_13870674013435125016.wav" },
+      text: "In many other cities of Italy and in the rest of the world, particularly in Poland, similar setups were made, which were viewed by a great number of people.",
+      OmniVoice: { file: "audio/en/en_fleurs_en_us_13870674013435125016_4168260504174612795.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/en_fleurs_en_us_13870674013435125016_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "This seems sensible, because the Earth doesn't feel as if it's moving, does it?", file: "audio/en/en_fleurs_en_us_3529855487992513201.wav" },
+      text: "According to police, the driver of the vehicle that hit the photographer is unlikely to face criminal charges.",
+      OmniVoice: { file: "audio/en/en_fleurs_en_us_3529855487992513201_17646385371758249908.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/en_fleurs_en_us_3529855487992513201_vdusTTS_gen_en.wav" }
+    },
+    {
+      prompt: { text: "Regional and seasonal severe weather phenomena include blizzards, snowstorms, ice storms, and dust storms.", file: "audio/en/en_fleurs_en_us_8395660467583137383.wav" },
+      text: "In 1990, it was added to the list of world heritage sites in danger, due to the threat of desert sands.",
+      OmniVoice: { file: "audio/en/en_fleurs_en_us_8395660467583137383_13245569655363672734.wav" },
+      VdusTTS: { file: "audio/vdusTTS/en/en_fleurs_en_us_8395660467583137383_vdusTTS_gen_en.wav" }
+    }
+  ],
+  japanese: [
+    {
+      prompt: { text: "この法律に定めるもののほか、本部に関し必要な事項は政令で定める。", file: "audio/ja/common_voice_ja_40928196.mp3" },
+      text: "でも、やっぱりこういうコンテンツ制作は続けることが一番大切ですよね。",
+      OmniVoice: { file: "audio/ja/japanese_00026.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/common_voice_ja_40928196_vdusTTS_gen_ja.wav" }
+    },
+    {
+      prompt: { text: "議員内閣制と大統領制の違いは、立法府と行政府の関係にある。議員内閣制では、国民から選挙で選ばれた議員が議会を構成し、議会の多数派から首相が指名され、首相が内閣を組織する。", file: "audio/ja/common_voice_ja_40899872.mp3" },
+      text: "日本のアニメ映画は、子供から大人まで楽しめる普遍的なテーマと美しいアニメーションで世界中に感動を届けています。",
+      OmniVoice: { file: "audio/ja/japanese_00082.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/common_voice_ja_40899872_vdusTTS_gen_ja.wav" }
+    },
+    {
+      prompt: { text: "羽を持ち、空を飛べるので、恐竜だと思っていない人も大勢います。", file: "audio/ja/ja_fleurs_ja_jp_10683203810610128933.wav" },
+      text: "宇宙にある人工衛星は通話を受信して、ほぼ瞬時にそれを反映します。",
+      OmniVoice: { file: "audio/ja/ja_fleurs_ja_jp_10683203810610128933_18146068393309246703.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/ja_fleurs_ja_jp_10683203810610128933_vdusTTS_gen_ja.wav" }
+    },
+    {
+      prompt: { text: "水は幅100フィートの範囲にわたって堤防の上にこぼれ落ちています。", file: "audio/ja/ja_fleurs_ja_jp_12387010142585874308.wav" },
+      text: "実地に体験したければ、早めに到着して演奏が聞こえやすいキャンプ場を確保しなければなりません。",
+      OmniVoice: { file: "audio/ja/ja_fleurs_ja_jp_12387010142585874308_10969509778910365671.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/ja_fleurs_ja_jp_12387010142585874308_vdusTTS_gen_ja.wav" }
+    },
+    {
+      prompt: { text: "その後2時間のうちに、さらに3つの爆弾が官庁施設の付近で爆発しました。", file: "audio/ja/ja_fleurs_ja_jp_12788004986374355070.wav" },
+      text: "その後、ラッカ・シンが先頭に立ってバジャンを歌いました。",
+      OmniVoice: { file: "audio/ja/ja_fleurs_ja_jp_12788004986374355070_11946518714540162763.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/ja_fleurs_ja_jp_12788004986374355070_vdusTTS_gen_ja.wav" }
+    },
+    {
+      prompt: { text: "そういったものは、実生活の問題解決に焦点を当てた別の分野になっています。", file: "audio/ja/ja_fleurs_ja_jp_6257135335237582548.wav" },
+      text: "イタリア語の発音は比較的簡単で、ほとんどの単語は文字通りに発音されます。",
+      OmniVoice: { file: "audio/ja/ja_fleurs_ja_jp_6257135335237582548_14857775735233890472.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ja/ja_fleurs_ja_jp_6257135335237582548_vdusTTS_gen_ja.wav" }
+    }
+  ],
+  korean: [
+    {
+      prompt: { text: "그러나 나 같은 명상을 즐기는 사람에게는 다른 데서 구하기 힘들도록 온갖 것을 가진 집이었습니다.", file: "audio/ko/common_voice_ko_41341820.mp3" },
+      text: "첫째 날은 서귀포에 있는 여수정천으로 갔습니다. 투명한 물과 아름다운 폭포는 마치 천국과 같은 경치를 선사했습니다.",
+      OmniVoice: { file: "audio/ko/korean_00037.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/common_voice_ko_41341820_vdusTTS_gen_ko.wav" }
+    },
+    {
+      prompt: { text: "밖으로 나간 덕호는 이제야 큰 대문 소리를 찌뻑 내며 쿵쿵하고 중대문을 들어선다", file: "audio/ko/common_voice_ko_41667661.mp3" },
+      text: "해질녘 바다를 바라보던 노인은 60년 전 같은 해변에서 만났던 첫사랑을 떠올렸다.",
+      OmniVoice: { file: "audio/ko/korean_00099.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/common_voice_ko_41667661_vdusTTS_gen_ko.wav" }
+    },
+    {
+      prompt: { text: "염소 사육은 대략 일만 년 전에 이란의 자그로스산맥에서 시작한 것으로 보입니다.", file: "audio/ko/ko_fleurs_ko_kr_10107571163062229727.wav" },
+      text: "이건 작별 인사가 아닙니다. 이것은 한 장의 끝이며 새로운 장의 시작입니다.",
+      OmniVoice: { file: "audio/ko/ko_fleurs_ko_kr_10107571163062229727_2510882382123888779.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/ko_fleurs_ko_kr_10107571163062229727_vdusTTS_gen_ko.wav" }
+    },
+    {
+      prompt: { text: "따라서, 연필이 등장하고 연필은 많은 사람들에게 좋은 도구로 남았습니다.", file: "audio/ko/ko_fleurs_ko_kr_3568751784040437751.wav" },
+      text: "그래도 관계자의 조언을 듣고 모든 표지판을 지키고, 안전 경고에 세심한 주의를 기울여야 합니다.",
+      OmniVoice: { file: "audio/ko/ko_fleurs_ko_kr_3568751784040437751_4430339481818254225.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/ko_fleurs_ko_kr_3568751784040437751_vdusTTS_gen_ko.wav" }
+    },
+    {
+      prompt: { text: "소방 구조 대원들이 결국 오후 11시 35분까지 불을 껐다.", file: "audio/ko/ko_fleurs_ko_kr_4146578248356287830.wav" },
+      text: "화요일에 베어 쓰러뜨릴 예정이었으나 긴급 법원의 판결로 구조되었다.",
+      OmniVoice: { file: "audio/ko/ko_fleurs_ko_kr_4146578248356287830_11667888958665146980.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/ko_fleurs_ko_kr_4146578248356287830_vdusTTS_gen_ko.wav" }
+    },
+    {
+      prompt: { text: "여행자들은 여행 계획에 차질이 생기지 않도록 현지 날씨에 대해 미리 찾아보고 가야 한다.", file: "audio/ko/ko_fleurs_ko_kr_4503557554367419146.wav" },
+      text: "시골길 운전에 익숙하지 않은 경우 가파른 경사, 좁은 차선 및 급격한 커브길을 조심해야 합니다.",
+      OmniVoice: { file: "audio/ko/ko_fleurs_ko_kr_4503557554367419146_4714574278772298617.wav" },
+      VdusTTS: { file: "audio/vdusTTS/ko/ko_fleurs_ko_kr_4503557554367419146_vdusTTS_gen_ko.wav" }
+    }
+  ],
+  thai: [
+    {
+      prompt: { text: "ภาพแรก คือตัวอย่างป้ายที่หวยแตก ภาพ 2,3 คือป้ายที่ชัดเจน", file: "audio/th/common_voice_th_41460262.mp3" },
+      text: "เทศบาลเมืองประกาศการนำระบบขนส่งสาธารณะใหม่มาใช้ ซึ่งสัญญาว่าจะลดเวลารอและปรับปรุงคุณภาพการบริการ",
+      OmniVoice: { file: "audio/th/thai_00032.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/common_voice_th_41460262_vdusTTS_gen_th.wav" }
+    },
+    {
+      prompt: { text: "อันนี้ก็ความเชื่อส่วนตัวฮะ ถ้าไม่ร้านร้านผม ผมก็ไม่ว่าอะไร แยกเตาโพธยานคํา", file: "audio/th/common_voice_th_41452716.mp3" },
+      text: "ศิลปะการต่อสู้แบบดั้งเดิมของไทยได้รับการขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมที่จับต้องไม่ได้โดยองค์การยูเนสโก",
+      OmniVoice: { file: "audio/th/thai_00087.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/common_voice_th_41452716_vdusTTS_gen_th.wav" }
+    },
+    {
+      prompt: { text: "เขาไม่ได้กำหนดตัวเลขสำหรับการตัดงบประมาณ โดยกล่าวว่าการกำหนดจะขึ้นอยู่กับผลผลิตทางเศรษฐกิจของจีน", file: "audio/th/th_fleurs_th_th_12454841202875400668.wav" },
+      text: "ประชากรดั้งเดิมไม่ได้เปลี่ยนแปลงแม้แต่น้อย พวกเขายังคงจำเป็นต้องปรับตัวแบบเดียวกับเมื่อก่อน",
+      OmniVoice: { file: "audio/th/th_fleurs_th_th_12454841202875400668_7412484023755101557.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/th_fleurs_th_th_12454841202875400668_vdusTTS_gen_th.wav" }
+    },
+    {
+      prompt: { text: "ระเบิดแบบฟิชชันทำงานบนหลักการที่ว่าการรวมนิวเคลียสที่มีโปรตอนและนิวตรอนจำนวนมากต้องใช้พลังงาน", file: "audio/th/th_fleurs_th_th_14941264863881883714.wav" },
+      text: "มีการใช้บริการนี้ในการขนส่งอยู่บ่อย ๆ ซึ่งรวมถึงเรือสำราญและการสำรวจที่ต้องการทั้งข้อมูลและเสียงจากระยะไกล",
+      OmniVoice: { file: "audio/th/th_fleurs_th_th_14941264863881883714_11182578007668220495.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/th_fleurs_th_th_14941264863881883714_vdusTTS_gen_th.wav" }
+    },
+    {
+      prompt: { text: "นักกีฏวิทยาเรียกแมลงกลุ่มนี้ในลักษณะที่เป็นทางการว่าแมลงปีกแข็ง", file: "audio/th/th_fleurs_th_th_405708368329299747.wav" },
+      text: "เขาไม่สามารถใช้ยาที่จำเป็นต้องใช้เพื่อเอาชนะความเจ็บปวดเพราะมีการห้ามไม่ให้ใช้ยาเหล่านี้ในเกมการแข่งขัน",
+      OmniVoice: { file: "audio/th/th_fleurs_th_th_405708368329299747_3007940828946657666.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/th_fleurs_th_th_405708368329299747_vdusTTS_gen_th.wav" }
+    },
+    {
+      prompt: { text: "มีรายงานว่ามีการปล้นอย่างกว้างขวางต่อเนื่องข้ามคืน เนื่องจากไม่มีเจ้าหน้าที่บังคับใช้กฎหมายที่ถนนของบิชเคก", file: "audio/th/th_fleurs_th_th_8781754929449205930.wav" },
+      text: "ในเมืองอื่น ๆ หลายเมืองของอิตาลีและในส่วนอื่น ๆ ของโลก โดยเฉพาะในโปแลนด์ มีการจัดงานที่คล้ายกันซึ่งมีผู้เข้าชมจำนวนมาก",
+      OmniVoice: { file: "audio/th/th_fleurs_th_th_8781754929449205930_8533878643103325422.wav" },
+      VdusTTS: { file: "audio/vdusTTS/th/th_fleurs_th_th_8781754929449205930_vdusTTS_gen_th.wav" }
+    }
+  ],
+  vietnamese: [
+    {
+      prompt: { text: "Hà sợ quá, giật lùi lại phía sau, xuyết ngã ngựa ra đất", file: "audio/vi/common_voice_vi_21965267.mp3" },
+      text: "Sách nói là phương tiện tuyệt vời để khám phá những câu chuyện hay trong cuộc sống.",
+      OmniVoice: { file: "audio/vi/vietnamese_00044.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/common_voice_vi_21965267_vdusTTS_gen_vi.wav" }
+    },
+    {
+      prompt: { text: "Trinh có hỏi thì được biết sông Trai vẫn đang làm ở chỗ cũ.", file: "audio/vi/common_voice_vi_23925117.mp3" },
+      text: "Vận động viên Paralympic đã giành huy chương vàng trong cuộc thi bơi lội, thiết lập kỷ lục thế giới mới trong hạng mục của mình.",
+      OmniVoice: { file: "audio/vi/vietnamese_00083.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/common_voice_vi_23925117_vdusTTS_gen_vi.wav" }
+    },
+    {
+      prompt: { text: "Họ thường cung cấp những thức ăn, đồ uống và giải trí đặc biệt để giữ khách hàng thoải mái, và giữ họ ở lại.", file: "audio/vi/vi_fleurs_vi_vn_5080253653527714871.wav" },
+      text: "Lực ma sát trên lòng đường đóng băng và phủ tuyết thấp khiến bạn không thể lái xe như đang lái trên đường nhựa bình thường.",
+      OmniVoice: { file: "audio/vi/vi_fleurs_vi_vn_5080253653527714871_8097358398001169269.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/vi_fleurs_vi_vn_5080253653527714871_vdusTTS_gen_vi.wav" }
+    },
+    {
+      prompt: { text: "Hiển nhiên, nếu bạn biết một ngôn ngữ La Mã, bạn sẽ dễ dàng học Tiếng Bồ Đào Nha.", file: "audio/vi/vi_fleurs_vi_vn_5541340816453446848.wav" },
+      text: "Du ngoạn bằng đường thủy trên đất liền có thể là một ý tưởng khá hay.",
+      OmniVoice: { file: "audio/vi/vi_fleurs_vi_vn_5541340816453446848_12803633552627186852.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/vi_fleurs_vi_vn_5541340816453446848_vdusTTS_gen_vi.wav" }
+    },
+    {
+      prompt: { text: "Trong khoảng 150 đến 200 bản in đã được tạo ra xuyên đêm, ngày nay được biết tới là “Bản in Dunlap”.", file: "audio/vi/vi_fleurs_vi_vn_676550904379811296.wav" },
+      text: "Với đặc điểm tương đối khó tiếp cận, 'Timbuktu' đã được sử dụng như một ẩn dụ chỉ về những vùng đất xa xôi kỳ lạ.",
+      OmniVoice: { file: "audio/vi/vi_fleurs_vi_vn_676550904379811296_10965755017487041216.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/vi_fleurs_vi_vn_676550904379811296_vdusTTS_gen_vi.wav" }
+    },
+    {
+      prompt: { text: "Quyền lực toàn diện của nó đã tác động đến mọi người, từ vua chúa đến thường dân.", file: "audio/vi/vi_fleurs_vi_vn_9410324112140689433.wav" },
+      text: "Nó cũng không có thẩm quyền trong việc sửa đồi luật thuế quan hay biểu thuế giữa các tiểu bang.",
+      OmniVoice: { file: "audio/vi/vi_fleurs_vi_vn_9410324112140689433_1315143562366891843.wav" },
+      VdusTTS: { file: "audio/vdusTTS/vi/vi_fleurs_vi_vn_9410324112140689433_vdusTTS_gen_vi.wav" }
+    }
+  ]
+};
+
+const crossLingualData = [
+  {
+    title: "中 → 英",
+    prompt: { text: "对，这就是我，万人敬仰的太乙真人，虽然有点婴儿肥，但也掩不住我逼人的帅气。", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_1.wav" },
+    text: "Suddenly, there was a burst of laughter beside me. I looked at them, stood up straight with high spirit, shook the slightly fleshy arms, and smiled lightly, saying,\"The flesh on my body is to hide my bursting charm. Otherwise, wouldn't it scare you?\"",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_1_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_zh_1_vdusTTS_gen_en.wav" }
+  },
+  {
+    title: "中 → 英",
+    prompt: { text: "事情怎么这么多啊！明天又要开会了，做不完啊！说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办？", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_2.wav" },
+    text: "Suddenly, the atmosphere became gloomy. At first glance, all the troubles seemed to surround me. I frowned, feeling that pressure, but I know I can't give up, can't admit defeat. So, I took a deep breath, and the voice in my heart told me, \"Anyway, must calm down and start again.\"",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_2_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_zh_2_vdusTTS_gen_en.wav" }
+  },
+  {
+    title: "中 → 英",
+    prompt: { text: "皇上请三思，皇后娘娘都是为了万岁爷着想，万岁爷不要辜负了娘娘的一片苦心。", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_3.wav" },
+    text: "The emperor's complexion did not change, remaining as still as a sculpture, and a touch of touching warmth flashed in his eyes. He deeply glanced at the loyal minister, and finally spoke: \"Well, I will consider it again.\" His voice was low and firm, leaving a faint hint of helplessness and tenderness in the air.",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_zh_3_gen_en.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_zh_3_vdusTTS_gen_en.wav" }
+  },
+  {
+    title: "英 → 中",
+    prompt: { text: "Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_1.wav" },
+    text: "顿时，气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_1_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_en_1_vdusTTS_gen_zh.wav" }
+  },
+  {
+    title: "英 → 中",
+    prompt: { text: "Are you familiar with it? Slice the steak and place the strips on top, then garnish with the dried cranberries, pine nuts and blue cheese. I wonder how people rationalized the decision.", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_2.wav" },
+    text: "我抬起头，坚定地说：“身高不能决定一切，这世界在看我，我更看得到世界。无论是北上广，或是别的什么，我都将以我自己的方式去攀爬，去追逐。我可能小，但我绝不会被忽视。”",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_2_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_en_2_vdusTTS_gen_zh.wav" }
+  },
+  {
+    title: "英 → 中",
+    prompt: { text: "You don't know how much trouble you've gotten yourself into? Look, if one of the others get to you first, they'll report you. Alpha Grant has a search out. And if they see you on human territory, they'll be shunned.", file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_3.wav" },
+    text: "你的安全以及族群的声誉都危在旦夕。你的勇敢令人钦佩，但有时候勇敢在于懂得何时撤退。拜托，考虑一下和我一起回去吧。我们可以制定一个计划，但前提是你愿意倾听。",
+    OmniVoice: { file: "audio/Cross-Lingual_Zero-shot_TTS/seedtts_ref_en_3_gen_zh.wav" },
+      VdusTTS: { file: "audio/vdusTTS/cross/seedtts_ref_en_3_vdusTTS_gen_zh.wav" }
+  }
+];
+
+const emotionalData = [
+  {
+    text: "I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring.",
+    prompt: { text: "Some call me nature. Others call me Mother Nature. I've been here for over four point and five billion years, twenty-two thousand five hundred times longer than you.", file: "audio/en/seedtts_ref_en_1.wav" },
+    VdusTTS: [
+      {
+        Emotion: "Happy",
+        Voices: [
+          { emotion: "Low", prompt: "audio/vdusTTS/emoTTS/开心-轻度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_happy_low.wav" },
+          { emotion: "Medium", prompt: "audio/vdusTTS/emoTTS/开心-中度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_happy_mid.wav" },
+          { emotion: "High", prompt: "audio/vdusTTS/emoTTS/开心-重度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_happy_high.wav" }
+        ]
+      },
+      {
+        Emotion: "Angry",
+        Voices: [
+          { emotion: "Low", prompt: "audio/vdusTTS/emoTTS/愤怒-轻度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_angry_low.wav" },
+          { emotion: "Medium", prompt: "audio/vdusTTS/emoTTS/愤怒-中度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_angry_mid.wav" },
+          { emotion: "High", prompt: "audio/vdusTTS/emoTTS/愤怒-重度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_angry_high.wav" }
+        ]
+      },
+      {
+        Emotion: "Sad",
+        Voices: [
+          { emotion: "Low", prompt: "audio/vdusTTS/emoTTS/悲伤-轻度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_sad_low.wav" },
+          { emotion: "Medium", prompt: "audio/vdusTTS/emoTTS/悲伤-中度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_sad_mid.wav" },
+          { emotion: "High", prompt: "audio/vdusTTS/emoTTS/悲伤-重度.wav", file: "audio/vdusTTS/emoTTS/seedtts_ref_en_1_vdusTTS_gen_emo_sad_high.wav" }
+        ]
+      }
+    ]
+    
+  },
+];
+
+// ====== 渲染函数 ======
+function renderMultilingualDemo(language) {
+  const container = document.getElementById("multilingual-container");
+  const data = multilingualData[language] || [];
+  
+  if (data.length === 0) {
+    container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">暂无该语种的演示数据</p>';
+    return;
+  }
+
+  let html = '<table><thead><tr><th>Prompt</th><th>Text</th><th>OmniVoice</th><th>VdusTTS</th></tr></thead><tbody>';
+  
+  data.forEach((item, idx) => {
+    html += `
+      <tr>
+        <td>
+          <audio controls><source src="${item.prompt.file}" type="audio/wav"></audio>
+          <div class="prompt-text">${item.prompt.text}</div>
+        </td>
+        <td>
+          <div class="text-content">${item.text}</div>
+        </td>
+        <td>
+          <audio controls><source src="${item.OmniVoice.file}" type="audio/wav"></audio>
+        </td>
+        <td>
+          <audio controls><source src="${item.VdusTTS.file}" type="audio/wav"></audio>
+        </td>
+      </tr>
+    `;
+  });
+  
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderCrossLingualDemo() {
+  const container = document.getElementById("cross-lingual-container");
+  
+  let html = '<table><thead><tr><th>Scenario</th><th>Prompt</th><th>Text</th><th>OmniVoice</th><th>VdusTTS</th></tr></thead><tbody>';
+  
+  crossLingualData.forEach((item, idx) => {
+    html += `
+      <tr>
+        <td><strong>${item.title}</strong></td>
+        <td>
+          <audio controls><source src="${item.prompt.file}" type="audio/wav"></audio>
+          <div class="prompt-text">${item.prompt.text}</div>
+        </td>
+        <td>
+          <div class="text-content">${item.text}</div>
+        </td>
+        <td>
+          <audio controls><source src="${item.OmniVoice.file}" type="audio/wav"></audio>
+        </td>
+        <td>
+          <audio controls><source src="${item.VdusTTS.file}" type="audio/wav"></audio>
+        </td>
+      </tr>
+    `;
+  });
+  
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function switchLanguage(language) {
+  renderMultilingualDemo(language);
+}
+
+function renderEmotionalDemo() {
+  const container = document.getElementById("emotional-container");
+  let html = '';
+  
+  emotionalData.forEach((item, idx) => {
+    // 显示一次 Prompt 和 Text
+    html += `
+      <div class="emotional-info" style="margin-bottom: 20px; padding: 15px; background: #f8fafc; border-radius: 8px;">
+        <div>
+          <strong style="color: #1e40af;">Text:</strong>
+          <div class="text-content" style="margin-top: 5px;">${item.text}</div>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <strong style="color: #1e40af;">Prompt:</strong>
+          <audio controls style="margin-center: 10px; vertical-align: middle;"><source src="${item.prompt.file}" type="audio/wav"></audio>
+          <div class="prompt-text" style="margin-top: 8px;">${item.prompt.text}</div>
+        </div>
+      </div>
+    `;
+    
+    // 每种情感一个子表格
+    item.VdusTTS.forEach((emotionItem) => {
+      html += `
+        <div style="margin-bottom: 20px;">
+          <h4 style="margin: 0 0 10px 0; color: #374151;">${emotionItem.Emotion}</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>类型</th>
+                ${emotionItem.Voices.map(v => `<th>${v.emotion}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 500; background: #f3f4f6;">情感提示音</td>
+                ${emotionItem.Voices.map(v => `
+                  <td>
+                    <audio controls><source src="${v.prompt}" type="audio/wav"></audio>
+                  </td>
+                `).join('')}
+              </tr>
+              <tr>
+                <td style="font-weight: 500; background: #f3f4f6;">合成结果</td>
+                ${emotionItem.Voices.map(v => `
+                  <td>
+                    <audio controls><source src="${v.file}" type="audio/wav"></audio>
+                  </td>
+                `).join('')}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+    });
+  });
+  
+  container.innerHTML = html;
+}
+
+// ====== 初始化 ======
+renderMultilingualDemo('chinese');
+renderCrossLingualDemo();
+renderEmotionalDemo();
+</script>
+
+</body>
+</html>
